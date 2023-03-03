@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMap Tool</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+ <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>-->  
+ <script src="./p5.min.js"></script>
+<script  src="script.js"> </script>
+
+    <title>KMap Tool</title>
+
+</head>
+<body class="bg-dark"> 
+    <main>
+         <section class="header-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Image and text -->
+                    <nav class="navbar fixed-top navbar-light bg-light">
+                        <a class="navbar-brand " >KMap Tool</a>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+   
+<section class="body-section">
+    <div class="container">
+        <div class="inputs">
+       
+       
+            <span>Number of Variables: <input type="number" name="varcount" id="varcount" value="2" oninput="displayTable()" ></span>
+            <div>
+                <div>Solution:</div>
+                <div id="booleanfunction"></div>
+            </div>
+           <div>
+            <div>TruthTable</div>
+            <div id="displayinput" ></div>
+        
+           </div>
+              
+                
+            </div>
+           
+        
+    </div>
+</section>
+
+    
+
+<section class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" >
+<span style="color: antiquewhite;">created by Ajith R B </span>
+
+            </div>
+        </div>
+    </div>
+</section>
+    
+</body>
+</html>
