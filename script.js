@@ -20,7 +20,9 @@ function setup(){
     displayTable()
 }
 
-function mousePressed(){
+
+
+function mouseClicked(){
     let i = Math.floor((mouseX-cellSize/4)/(cellSize)) - 1;
     let j = Math.floor((mouseY-cellSize/4)/(cellSize)) - 1;
     if(row == 2) j--;
@@ -35,6 +37,8 @@ function mousePressed(){
     writeMinterms()
     createKMap()
 }
+
+
 
 function isSafe(i, j){
     return !(i < 0 || i >= kMap[0].length || j < 0 || j >= kMap.length || kMap[j][i] == 0);
