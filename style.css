@@ -32,7 +32,7 @@ body{
 }
 #displayinput input{
     width: 30px;
-    color: black;
+    color:white;
 }
 .binary{
     letter-spacing: 10px;
@@ -103,10 +103,6 @@ height: 100%;
         flex-direction: column;
       
         
-    }
-    #varcount
-    {
-        color: #ffff;
     }
    
    
