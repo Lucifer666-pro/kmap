@@ -2,7 +2,7 @@ self.addEventListener("install",e=>{
    // console.log('service worker changed');
    e.waitUntil(
     caches.open("static").then(cache=>{
-        return cache.addAll(["./","./style.css","./script.js","p5.min.js","./images/map1.png","./images/map2.png"])
+        return cache.addAll(["./","./style.css","./script.js","./p5.min.js","./images/map1.png","./images/map2.png"])
     })
    )
 })
