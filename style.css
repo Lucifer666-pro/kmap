@@ -22,7 +22,7 @@ body{
 #varcount{
     width: 30px;
     margin: 10px 0;
-    color: #ffffff;
+    color: black;
 }
 #displayinput{
     background-color: rgb(71 55 55);
@@ -103,6 +103,10 @@ height: 100%;
         flex-direction: column;
       
         
+    }
+    #varcount
+    {
+        color: #ffff;
     }
    
    
