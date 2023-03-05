@@ -22,7 +22,7 @@ body{
 #varcount{
     width: 30px;
     margin: 10px 0;
-    color: black;
+    color: white;
 }
 #displayinput{
     background-color: rgb(71 55 55);
@@ -32,7 +32,7 @@ body{
 }
 #displayinput input{
     width: 30px;
-    color:white;
+    color:rgb(104, 91, 91);
 }
 .binary{
     letter-spacing: 10px;
