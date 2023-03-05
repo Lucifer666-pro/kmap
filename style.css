@@ -22,7 +22,7 @@ body{
 #varcount{
     width: 30px;
     margin: 10px 0;
-    color: #000;
+    color: #ffffff;
 }
 #displayinput{
     background-color: rgb(71 55 55);
@@ -73,7 +73,7 @@ body{
     padding: 0 5px;
     overflow: hidden;
     font-size: 2em;
-    background-color: #ddd;
+    background-color: #fef8f8;
 }
 #mdcontainer{
     font-family: monospace;
