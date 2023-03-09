@@ -32,8 +32,7 @@ function mouseClicked(){
     let bin = sequence[j] + sequence[i];
     let idx = binaryToDecimal(bin);
     let elt = document.getElementsByClassName("outputvals")[idx];
-    elt.value = elt.value == 0 ? 1 : 0
-    //(elt.value == 1 ? 'x' : 0)
+    elt.value = elt.value == 0 ? 1 : (elt.value == 1 ? 'x' : 0)
     writeMinterms()
     createKMap()
 }
@@ -210,14 +209,14 @@ function createBooleanFunction(islands){
     let output = "";
     let visited = new Array(row);
     for(let i = 0; i < row; i++) visited[i] = new Array(col).fill(false);
-    /**  islands = islands.filter(island => {
+      islands = islands.filter(island => {
         for(let j = island.start.y; j <= island.end.y; j++){
             for(let i = island.start.x; i <= island.end.x; i++){
                 if(kMap[j][i] != 'x') return true;
             }
         }
         return false;
-    })*/
+    })
    
     islands = islands.filter(island => {
         let flag = false;
@@ -316,10 +315,9 @@ function writeMinterms(){
     let m = [], d = [];
     outputvals.forEach((out, i) => {
         if(out.value == 1) m.push(i);
-        //else if(out.value == 'x') d.push(i)
+        else if(out.value == 'x') d.push(i)
     })
-   // document.getElementById("minterm").value = m.join(",")
-   // document.getElementById("dontcare").value = d.join(",")
+   
 }
 
 function drawKMap(){
@@ -355,10 +353,11 @@ function drawKMapOutputs(bg = true){
                 if(kMap[j]?.[i] == 1){
                     fill('blue')
                     rect((i*cellSize)-offsetX+cellSize/2, (j*cellSize)-offsetY+cellSize/2, cellSize, cellSize)
-                } /**else if(kMap[j]?.[i] == 'x'){
-                    fill(255, 100, 100)
+                } else if(kMap[j]?.[i] == 'x'){
+                    //fill(255, 100, 100)
+                    fill(255,0,0)
                     rect((i*cellSize)-offsetX+cellSize/2, (j*cellSize)-offsetY+cellSize/2, cellSize, cellSize)
-                } */
+                } 
                 
             }
             fill(255)
@@ -409,59 +408,15 @@ function displayTable(){
     drawKMap()
     setInterval(solveKMap,100)
 }
-/**function changeOutput(index, val, elt){
+function changeOutput(index, val, elt){
     let newVal = val == 0 ? 1 : (val == 1 ? 'x' : 0)
     elt.value = newVal;
     truthTable[index][1][0] = newVal;
     writeMinterms()
     createKMap();
-} */
+} 
 
-/**function applyMinterms(elt){
-    let val = elt.value.replace(/\s/g, '')
-    let terms = val.split(",").map(t => Number(t))
-    terms = terms.filter(t => t !== '').map(t => Number(t))
-    terms.sort((a, b) => a - b)
-    let maximumTerm = terms[terms.length-1];
-    if(maximumTerm >= 32) {
-        alert("Either there is a typo or number of variables is too large");
-        elt.value = '';
-        return;
-    }
-    if(maximumTerm == '') maximumTerm = 2;
-    let varCountDisplay = document.getElementById("varcount")
-    let prevVal = varCountDisplay.value;
-    varCountDisplay.value = maximumTerm < 2? 2 : Math.ceil(Math.log2(Number(maximumTerm)+1));
-    if(varCountDisplay.value != prevVal){
-        displayTable()
-    }
-     let dontcares = document.getElementById("dontcare").value.split(",").filter(dc => dc !== '').map(t => Number(t));
-    dontcares.sort()
-    let intersection = dontcares.filter(dc => terms.includes(dc));
-    if(intersection.length > 0){
-        intersection.forEach(val => {
-            terms.splice(terms.indexOf(val))
-        });
-        elt.value = terms.join(",");
-    }
-    let outputVals = document.getElementsByClassName("outputvals");
-    let pointer1 = 0, pointer2 = 0;
-    dontcares.forEach(dc => {
-        outputVals[dc].value = 'x';
-    });
-    console.log(terms, dontcares) 
-   
-    while(pointer1 < outputVals.length  && terms[pointer2] != undefined){
-        outputVals[pointer1].value = outputVals[pointer1].value == 1? 0 : outputVals[pointer1].value;
-        console.log(outputVals[pointer1].value)
-        if(pointer1 == terms[pointer2]){
-            outputVals[terms[pointer2]].value = 1;
-            pointer2++;
-        }
-        pointer1++;
-    }
-    createKMap();
-}
+
 function applyDontCares(elt){
     let val = elt.value.replace(/\s/g, '')
     let terms = val.split(",").map(t => Number(t))
@@ -492,7 +447,7 @@ function applyDontCares(elt){
     createKMap();
 }
 
-*/
+
 function decimalToBinary(x, fixedLengthSize = 0){
     let res = "";
     while(x > 0){
